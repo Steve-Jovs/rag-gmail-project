@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Gmail Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gmail RAG Assistant</h1>
+            <p class="subtitle">AI-powered email intelligence</p>
+        </div>
+        
+        <div class="auth-section">
+            <div class="auth-container">
+                <div class="auth-info">
+                    <div class="auth-status">
+                        <div class="status-indicator" id="statusIndicator"></div>
+                        <span id="authStatus">Not authenticated</span>
+                    </div>
+                    <div class="user-email" id="userEmail"></div>
+                </div>
+                <button class="auth-btn" id="authBtn" onclick="authenticateGmail()">
+                    <span id="authBtnText">Authenticate</span>
+                    <div class="spinner"></div>
+                </button>
+            </div>
+        </div>
+
+        <div class="query-section">
+            <div class="query-label">Ask about your emails</div>
+            <textarea 
+                id="queryInput" 
+                placeholder="What would you like to know? Try asking about recent conversations, specific topics, or people..."
+                rows="3"
+            ></textarea>
+
+            <div class="email-count-section">
+                <label for="emailCount" class="count-label">Number of emails to analyze:</label>
+                <div class="count-selector">
+                    <button type="button" class="count-btn" onclick="decreaseCount()">-</button>
+                    <input type="number" id="emailCount" min="1" max="100" value="10">
+                    <button type="button" class="count-btn" onclick="increaseCount()">+</button>
+                    <span class="count-text">emails</span>
+                </div>
+            </div>
+            
+            <!-- Example searches section -->
+            <div class="example-buttons">
+                <button class="example-btn" onclick="setQuery('Show me emails from the last week', 20)">Last week's emails</button>
+                <button class="example-btn" onclick="setQuery('What did I get today?', 10)">Today's emails</button>
+                <button class="example-btn" onclick="setQuery('Important emails I should check', 30)">Important emails</button>
+                <button class="example-btn" onclick="setQuery('Emails with attachments', 15)">Emails with attachments</button>
+            </div>
+            
+            <button class="search-btn" id="searchBtn" onclick="sendQuery()">
+                <span id="searchBtnText">Search Emails</span>
+                <div class="spinner"></div>
+            </button>
+        </div>
+
+        <div class="results">
+            <div class="answer-container" id="answerContainer">
+                <div class="answer" id="answer"></div>
+            </div>
+            <div class="sources-container" id="sourcesContainer">
+                <div id="sources"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

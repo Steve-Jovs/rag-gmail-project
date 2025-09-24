@@ -1,0 +1,31 @@
+# Environment variables
+.env
+backend/.env
+
+# API credentials
+credentials.json
+token.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+.env/
+
+# Gmail API
+credentials.json
+token.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Node
+node_modules/
+npm-debug.log*
